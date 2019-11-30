@@ -11,16 +11,13 @@
 
 .menu-item{
     color: white;
-    padding: 5px 10px;
+    padding: 10px 10px;
 }
 
 .sticky{
     position: fixed;
     top: 0;
-}
-
-.sticky + .fuzzy-data{
-    margin-top: 40px;
+    z-index: 15;
 }
 
 /* Fuzzy Data  to be removed*/

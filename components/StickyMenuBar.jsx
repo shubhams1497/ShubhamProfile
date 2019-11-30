@@ -1,8 +1,8 @@
 import * as React from 'react';
-import styles from './Content.css';
+import styles from './StickyMenuBar.css';
 import * as cx from 'classnames';
 
-export default class Content extends React.Component{
+export default class StickyMenuBar extends React.Component{
 
     constructor(props){
         super(props);
@@ -19,7 +19,7 @@ export default class Content extends React.Component{
 
     componentDidMount(){
         const offset = this.headerRef.offsetTop;
-        // //console.log(offset);
+        // console.log(offset);
         // this.setState({headerOffset:offset});
         window.addEventListener('scroll', () => {
             if(window.pageYOffset > offset){
@@ -40,29 +40,19 @@ export default class Content extends React.Component{
         const menus = ['Menu1','Menu2','Menu3','Menu4'];
 
         return(
-            <React.Fragment>
-                <div ref={this.setHeaderRef} className = {cx([styles['header-bar']], {[styles['sticky']] : this.state.isSticky} )}>
-                    {
-                        menus.map(
-                            (menu,idx) =>
-                            <div key={idx} className={styles['menu-item']}>{menu}</div>
-                        )
-                    }
-                </div>
-                <FuzzyData/>
-                <FuzzyData/>
-                <FuzzyData/>
-                <FuzzyData/>
-                <FuzzyData/>
-                <FuzzyData/>
-                <FuzzyData/>
-                <FuzzyData/>
-            </React.Fragment>
+            <div ref={this.setHeaderRef} className = {cx([styles['header-bar']], {[styles['sticky']] : this.state.isSticky} )}>
+                {
+                    menus.map(
+                        (menu,idx) =>
+                        <div key={idx} className={styles['menu-item']}>{menu}</div>
+                    )
+                }
+            </div>
         )
     }
 }
 
-const FuzzyData = () => {
+export const FuzzyData = () => {
     return(
         <div className={styles['fuzzy-data']}>
             {

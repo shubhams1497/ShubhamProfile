@@ -39,7 +39,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     devServer: {
-        contentBase: parentDir,
+        contentBase: parentDir + '/dist',
         historyApiFallback: true
     }
 }
