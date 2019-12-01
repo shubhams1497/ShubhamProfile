@@ -1,0 +1,32 @@
+.app-container{
+    width:100%;
+    display: flex;
+    flex-flow: row;
+    position: relative;
+}
+
+.left-panel{
+    width: 25%;
+    /* max-width: 320px; */
+    position: fixed;
+    /* top: 10px; */
+    left: 1%;
+}
+
+.right-panel{
+    width: 72%;
+    position: relative;
+    /* top: 10px; */
+    left: 28%;
+}
+
+@media only screen and (max-width: 800px) {
+    .left-panel {
+      width: 0;
+    }
+
+    .right-panel{
+        width: 100%;
+        left:0;
+    }
+  }

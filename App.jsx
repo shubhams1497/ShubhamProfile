@@ -1,6 +1,8 @@
 import * as React from 'react';
 import ImageCarousel from './components/ImageCarousel.jsx';
 import StickyMenuBar,{ FuzzyData} from './components/StickyMenuBar.jsx';
+import SideBar from './components/SideBar.jsx';
+import styles from './App.css';
 export default class App extends React.Component{
 
     render(){
@@ -12,20 +14,27 @@ export default class App extends React.Component{
                             ]
 
         return(
-            <React.Fragment>
-                <StickyMenuBar/>
-                <ImageCarousel images={imageArray}/>
-                <FuzzyData/>
-                <FuzzyData/>
-                <FuzzyData/>
-                <FuzzyData/>
-                <FuzzyData/>
-                <FuzzyData/>
-                <FuzzyData/>
-                <FuzzyData/>
-                <FuzzyData/>
-                <FuzzyData/>
-            </React.Fragment>
+            <div className={styles['app-container']}>
+                <div className={styles['left-panel']}>
+                    <SideBar/>
+                </div>
+                <div className={styles['right-panel']}>
+                    <StickyMenuBar/>
+                    <ImageCarousel images={imageArray}/>
+                    <FuzzyData/>
+                    <FuzzyData/>
+                    <FuzzyData/>
+                    <FuzzyData/>
+                    <FuzzyData/>
+                    <FuzzyData/>
+                    <FuzzyData/>
+                    <FuzzyData/>
+                    <FuzzyData/>
+                    <FuzzyData/>
+                    <FuzzyData/>
+                    <FuzzyData/>
+                </div>
+            </div>
         );
     }
 }

@@ -18,6 +18,7 @@
     position: fixed;
     top: 0;
     z-index: 15;
+    box-shadow: 6px 11px 16px 2px #3F3F3F;
 }
 
 /* Fuzzy Data  to be removed*/
