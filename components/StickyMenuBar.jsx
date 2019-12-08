@@ -7,6 +7,7 @@ export default class StickyMenuBar extends React.Component{
     constructor(props){
         super(props);
         this.setHeaderRef = this.setHeaderRef.bind(this);
+        this.resolveActiveMenuIdx = this.resolveActiveMenuIdx.bind(this);
         this.state = {
             isSticky: false,
             headerOffset: 0,
@@ -20,10 +21,13 @@ export default class StickyMenuBar extends React.Component{
 
     componentDidMount(){
         const offset = this.headerRef.offsetTop;
+        let actionTimer;
         // console.log(offset);
         // this.setState({headerOffset:offset});
         window.addEventListener('scroll', () => {
             // console.log(this.props.sectionRefs[1].offsetTop);
+            clearTimeout(actionTimer);
+            actionTimer = setTimeout(this.resolveActiveMenuIdx,80);
             if(window.pageYOffset > offset){
                 if(!this.state.isSticky){
                     this.setState({isSticky: true});
@@ -34,12 +38,13 @@ export default class StickyMenuBar extends React.Component{
                     this.setState({isSticky: false});
                 }
             }
-            this.resolveActiveMenuIdx(window.pageYOffset);
+            // this.resolveActiveMenuIdx(window.pageYOffset);
         });
     }
 
-    resolveActiveMenuIdx(currOffset){
-        const adjustedOffset = 55;
+    resolveActiveMenuIdx(){
+        let currOffset = window.pageYOffset;
+        const adjustedOffset = 85;
         currOffset = currOffset + adjustedOffset;
         if(currOffset < this.props.sectionRefs[1].offsetTop){
             this.setState({activeMenuIdx: 0});
@@ -67,7 +72,7 @@ export default class StickyMenuBar extends React.Component{
             //     behavior: 'smooth'
             // });
             const elementY = this.props.sectionRefs[key].offsetTop-55;
-            const duration = 500;
+            const duration = 300;
             let startingY = window.pageYOffset;
             let diff = elementY - startingY;
             let start;
