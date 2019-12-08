@@ -14,14 +14,26 @@
 .menu-item-active{
     padding: 10px 10px;
     cursor: pointer;
+    z-index: 16;
 }
 
 .menu-item-active{
     color: rgb(65, 65, 175);
-    background-color:rgb(235, 235, 235);
+    /* background-color:rgb(235, 235, 235); */
 }
 .menu-item{
     color: white;
+}
+
+.active-indicator{
+    background-color: white;
+    z-index: 15;
+    width: 76px;
+    height: 38px;
+    position: absolute;
+    border: 1px solid rgb(65, 65, 175);
+    border-radius: 5px;
+    transition: all 0.5s ease; 
 }
 
 .sticky{

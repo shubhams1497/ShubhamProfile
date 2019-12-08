@@ -59,13 +59,34 @@ export default class StickyMenuBar extends React.Component{
     }
 
     handleMenuItemClick(key){
-        return ()=>{
-            const scrollToVal = this.props.sectionRefs[key].offsetTop-55;
-            window.scroll({
-                top: scrollToVal, 
-                left: 0, 
-                behavior: 'smooth'
-              });
+        return () => {
+            // const scrollToVal = this.props.sectionRefs[key].offsetTop-55;
+            // window.scroll({
+            //     top: scrollToVal, 
+            //     left: 0, 
+            //     behavior: 'smooth'
+            // });
+            const elementY = this.props.sectionRefs[key].offsetTop-55;
+            const duration = 500;
+            let startingY = window.pageYOffset;
+            let diff = elementY - startingY;
+            let start;
+
+            // Bootstrap our animation - it will get called right before next frame shall be rendered.
+            window.requestAnimationFrame(function step(timestamp) {
+                if (!start) start = timestamp;
+                // Elapsed milliseconds since start of scrolling.
+                var time = timestamp - start;
+                // Get percent of completion in range [0, 1].
+                var percent = Math.min(time / duration, 1);
+
+                window.scrollTo(0, startingY + diff * percent);
+
+                // Proceed with animation as long as we wanted it to.
+                if (time < duration) {
+                window.requestAnimationFrame(step);
+                }
+            })
         }
     }
 
@@ -75,6 +96,9 @@ export default class StickyMenuBar extends React.Component{
 
         return(
             <div ref={this.setHeaderRef} className = {cx([styles['header-bar']], {[styles['sticky']] : this.state.isSticky} )}>
+                <div className={styles['active-indicator']} 
+                     style={{left: `${activeMenuIdx*76}px`}}>
+                </div>
                 {
                     menus.map(
                         (menu,idx) =>
