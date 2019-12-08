@@ -103,7 +103,7 @@ export default class StickyMenuBar extends React.Component{
                     menus.map(
                         (menu,idx) =>
                         <div key={idx} onClick={this.handleMenuItemClick(idx)}
-                            className={ cx( {[styles['menu-item-active']]: (idx===activeMenuIdx)} , {[styles['menu-item']]: (idx!==activeMenuIdx)} ) }>
+                            className={ styles['menu-item']} style={{color: (activeMenuIdx===idx)?'rgb(65, 65, 175)':'white'}}>
                             {menu}
                         </div>
                     )
