@@ -2,8 +2,22 @@ import * as React from 'react';
 import ImageCarousel from './components/ImageCarousel.jsx';
 import StickyMenuBar,{ FuzzyData} from './components/StickyMenuBar.jsx';
 import SideBar from './components/SideBar.jsx';
+import SectionContent from './components/SectionContent.jsx';
 import styles from './App.css';
 export default class App extends React.Component{
+
+    constructor(props)
+    {
+        super(props);
+        this.setSectionRef = this.setSectionRef.bind(this);
+        this.sectionRefs = [];
+    }
+
+    setSectionRef(key){
+        return (e) => {
+            this.sectionRefs[key] = e;
+        }
+    }
 
     render(){
         const imageArray = [
@@ -19,20 +33,12 @@ export default class App extends React.Component{
                     <SideBar/>
                 </div>
                 <div className={styles['right-panel']}>
-                    <StickyMenuBar/>
+                    <StickyMenuBar sectionRefs={this.sectionRefs}/>
                     <ImageCarousel images={imageArray}/>
-                    <FuzzyData/>
-                    <FuzzyData/>
-                    <FuzzyData/>
-                    <FuzzyData/>
-                    <FuzzyData/>
-                    <FuzzyData/>
-                    <FuzzyData/>
-                    <FuzzyData/>
-                    <FuzzyData/>
-                    <FuzzyData/>
-                    <FuzzyData/>
-                    <FuzzyData/>
+                    <SectionContent setRef={this.setSectionRef(0)} header={'Section1'}/>
+                    <SectionContent setRef={this.setSectionRef(1)} header={'Section2'}/>
+                    <SectionContent setRef={this.setSectionRef(2)} header={'Section3'}/>
+                    <SectionContent setRef={this.setSectionRef(3)} header={'Section4'}/>
                 </div>
             </div>
         );

@@ -1,0 +1,17 @@
+.section-container{
+    background-color: rgb(209, 209, 209); 
+    margin: 20px 0;
+}
+
+.section-header{
+    background-color: rgb(69, 81, 245); 
+    color: white;
+    font-size: 18px;
+    padding: 8px 5px;
+}
+
+.section-body{ 
+    font-size: 15px;
+    padding: 2px 5px;
+}
+

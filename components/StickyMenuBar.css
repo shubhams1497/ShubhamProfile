@@ -3,15 +3,25 @@
     /* max-width: 800px; */
     display: flex;
     flex-flow: row;
+    /* flex-wrap: wrap; */
     background-color: rgb(65, 65, 175);
     /* border-radius: 12px; */
     /* margin: 0 auto; */
     /* margin-top: 5px; */
 }
 
+.menu-item,
+.menu-item-active{
+    padding: 10px 10px;
+    cursor: pointer;
+}
+
+.menu-item-active{
+    color: rgb(65, 65, 175);
+    background-color:rgb(235, 235, 235);
+}
 .menu-item{
     color: white;
-    padding: 10px 10px;
 }
 
 .sticky{
@@ -23,5 +33,5 @@
 
 /* Fuzzy Data  to be removed*/
 .fuzzy-data{
-    margin-top: 30px; 
+    margin: 30px 0; 
 }
