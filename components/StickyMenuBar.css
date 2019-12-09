@@ -1,17 +1,16 @@
 .header-bar{
-    width: 100%;
+    /* width: 100%; */
     /* max-width: 800px; */
     display: flex;
     flex-flow: row;
     /* flex-wrap: wrap; */
-    background-color: rgb(217, 217, 222);
+    /* background-color: rgb(217, 217, 222); */
     /* border-radius: 12px; */
     /* margin: 0 auto; */
     /* margin-top: 5px; */
-    position: sticky;
-    top:0;
-    z-index: 15;
-    box-shadow: 6px 11px 16px 2px #3F3F3F;
+    /* position: sticky;
+    top:0; */
+    /* z-index: 15; */
     padding: 0 5px;
 }
 

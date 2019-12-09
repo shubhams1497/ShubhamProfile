@@ -33,7 +33,9 @@ export default class App extends React.Component{
                     <SideBar/>
                 </div>
                 <div className={styles['right-panel']}>
-                    <StickyMenuBar sectionRefs={this.sectionRefs}/>
+                    <div className={styles['menu-bar-container']}>
+                        <StickyMenuBar sectionRefs={this.sectionRefs}/>
+                    </div>
                     <ImageCarousel images={imageArray}/>
                     <SectionContent setRef={this.setSectionRef(0)} header={'Section1'}/>
                     <SectionContent setRef={this.setSectionRef(1)} header={'Section2'}/>
