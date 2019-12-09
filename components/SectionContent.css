@@ -4,10 +4,13 @@
 }
 
 .section-header{
-    background-color: rgb(69, 81, 245); 
+    background-color: rgb(115, 115, 115); 
     color: white;
     font-size: 18px;
     padding: 8px 5px;
+    -webkit-box-shadow: 0px 3px 1px 1px rgba(127, 126, 126, 0.6);
+    -moz-box-shadow: 0px 3px 1px 1px rgba(127, 126, 126, 0.6);
+    box-shadow: 0px 3px 1px 1px rgba(127, 126, 126, 0.6);
 }
 
 .section-body{ 

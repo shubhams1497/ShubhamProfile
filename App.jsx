@@ -33,14 +33,13 @@ export default class App extends React.Component{
                     <SideBar/>
                 </div>
                 <div className={styles['right-panel']}>
+                    <ImageCarousel images={imageArray}/>
                     <div className={styles['menu-bar-container']}>
                         <StickyMenuBar sectionRefs={this.sectionRefs}/>
                     </div>
-                    <ImageCarousel images={imageArray}/>
-                    <SectionContent setRef={this.setSectionRef(0)} header={'Section1'}/>
-                    <SectionContent setRef={this.setSectionRef(1)} header={'Section2'}/>
-                    <SectionContent setRef={this.setSectionRef(2)} header={'Section3'}/>
-                    <SectionContent setRef={this.setSectionRef(3)} header={'Section4'}/>
+                    <SectionContent setRef={this.setSectionRef(0)} header={'About Me'} bodyContent = {FuzzyData}/>
+                    <SectionContent setRef={this.setSectionRef(1)} header={'My Profession'} bodyContent = {FuzzyData}/>
+                    <SectionContent setRef={this.setSectionRef(2)} header={'Contact Me'} bodyContent = {FuzzyData}/>
                 </div>
             </div>
         );

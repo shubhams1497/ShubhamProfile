@@ -9,14 +9,14 @@ export default class SectionContent extends React.Component{
     }
     
     render(){
-
+        const BodyContent = this.props.bodyContent;
         return(
             <div ref={this.props.setRef} className={styles['section-container']}>
                 <div className={styles['section-header']}>
                     {this.props.header}
                 </div>
                 <div className={styles['section-body']}>
-                    <FuzzyData/>
+                    <BodyContent/>
                 </div>
             </div>
         );

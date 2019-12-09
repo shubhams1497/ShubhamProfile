@@ -7,16 +7,24 @@ export default class StickyMenuBar extends React.Component{
     constructor(props){
         super(props);
         this.setHeaderRef = this.setHeaderRef.bind(this);
+        this.setMenuItemRef = this.setMenuItemRef.bind(this);
         this.resolveActiveMenuIdx = this.resolveActiveMenuIdx.bind(this);
         this.state = {
             isSticky: false,
             headerOffset: 0,
             activeMenuIdx: 0
         }
+        this.menuRefs = [];
     }
 
     setHeaderRef(e){
         this.headerRef = e;
+    }
+
+    setMenuItemRef(idx){
+        return (e) => {
+            this.menuRefs[idx] = e;
+        }
     }
 
     componentDidMount(){
@@ -44,7 +52,7 @@ export default class StickyMenuBar extends React.Component{
 
     resolveActiveMenuIdx(){
         let currOffset = window.pageYOffset;
-        const adjustedOffset = 85;
+        const adjustedOffset = 170;
         currOffset = currOffset + adjustedOffset;
         if(currOffset < this.props.sectionRefs[1].offsetTop){
             this.setState({activeMenuIdx: 0});
@@ -53,13 +61,9 @@ export default class StickyMenuBar extends React.Component{
         {
             this.setState({activeMenuIdx: 1});
         }
-        else if(currOffset >= this.props.sectionRefs[2].offsetTop && currOffset < this.props.sectionRefs[3].offsetTop)
+        else if(currOffset >= this.props.sectionRefs[2].offsetTop)
         {
             this.setState({activeMenuIdx: 2});
-        }
-        else if(currOffset >= this.props.sectionRefs[3].offsetTop)
-        {
-            this.setState({activeMenuIdx: 3});
         }
     }
 
@@ -97,19 +101,20 @@ export default class StickyMenuBar extends React.Component{
 
     render(){
         const activeMenuIdx = this.state.activeMenuIdx;
-        const menus = ['Section1','Section2','Section3','Section4'];
+        const leftOffsetActiveMenu = this.menuRefs[activeMenuIdx]?this.menuRefs[activeMenuIdx].offsetLeft: 0;
+        const menus = ['ABOUT ME','PROFESSION','CONTACT'];
 
         return(
             <div ref={this.setHeaderRef} className = {cx([styles['header-bar']], {[styles['sticky']] : this.state.isSticky} )}>
                 <div className={styles['active-indicator']} 
-                     style={{left: `${activeMenuIdx*76 + 5}px`}}>
+                     style={{left: `${leftOffsetActiveMenu}px`}}>
                 </div>
                 {
                     menus.map(
                         (menu,idx) =>
-                        <div key={idx} onClick={this.handleMenuItemClick(idx)}
+                        <div key={idx} ref={this.setMenuItemRef(idx)}  onClick={this.handleMenuItemClick(idx)}
                             className={ styles['menu-item']} style={{color: (activeMenuIdx===idx)?'rgb(40, 40, 40)':'rgb(85, 85, 85)'}}>
-                            {menu}
+                            <span className={ styles['menu-element']}>{menu}</span>
                         </div>
                     )
                 }

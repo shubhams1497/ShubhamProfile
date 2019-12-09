@@ -2,6 +2,7 @@
     /* width: 100%; */
     /* max-width: 800px; */
     display: flex;
+    justify-content: space-between;
     flex-flow: row;
     /* flex-wrap: wrap; */
     /* background-color: rgb(217, 217, 222); */
@@ -15,7 +16,11 @@
 }
 
 .menu-item{
-    padding: 10px 10px;
+    width: 100px;
+    height: 38px;
+    text-align: center;
+    display: flex;
+    /* padding: 10px 10px; */
     cursor: pointer;
     z-index: 16;
     color: rgb(82, 81, 81);
@@ -23,10 +28,14 @@
     transition: all 0.3s ease; 
 }
 
+.menu-element{
+    margin: auto;
+}
+
 .active-indicator{
     background-color: white;
     z-index: 15;
-    width: 76px;
+    width: 100px;
     height: 30px;
     position: absolute;
     /* border: 1px solid rgb(65, 65, 175); */
