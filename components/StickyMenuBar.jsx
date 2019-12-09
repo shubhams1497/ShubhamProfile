@@ -102,7 +102,7 @@ export default class StickyMenuBar extends React.Component{
         return(
             <div ref={this.setHeaderRef} className = {cx([styles['header-bar']], {[styles['sticky']] : this.state.isSticky} )}>
                 <div className={styles['active-indicator']} 
-                     style={{left: `${activeMenuIdx*76}px`}}>
+                     style={{left: `${activeMenuIdx*76 + 5}px`}}>
                 </div>
                 {
                     menus.map(
