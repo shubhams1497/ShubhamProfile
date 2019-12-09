@@ -28,16 +28,16 @@ export default class StickyMenuBar extends React.Component{
             // console.log(this.props.sectionRefs[1].offsetTop);
             clearTimeout(actionTimer);
             actionTimer = setTimeout(this.resolveActiveMenuIdx,80);
-            if(window.pageYOffset > offset){
-                if(!this.state.isSticky){
-                    this.setState({isSticky: true});
-                }
-            }
-            else{
-                if(this.state.isSticky){
-                    this.setState({isSticky: false});
-                }
-            }
+            // if(window.pageYOffset > offset){
+            //     if(!this.state.isSticky){
+            //         this.setState({isSticky: true});
+            //     }
+            // }
+            // else{
+            //     if(this.state.isSticky){
+            //         this.setState({isSticky: false});
+            //     }
+            // }
             // this.resolveActiveMenuIdx(window.pageYOffset);
         });
     }
@@ -108,7 +108,7 @@ export default class StickyMenuBar extends React.Component{
                     menus.map(
                         (menu,idx) =>
                         <div key={idx} onClick={this.handleMenuItemClick(idx)}
-                            className={ styles['menu-item']} style={{color: (activeMenuIdx===idx)?'rgb(65, 65, 175)':'white'}}>
+                            className={ styles['menu-item']} style={{color: (activeMenuIdx===idx)?'rgb(40, 40, 40)':'rgb(85, 85, 85)'}}>
                             {menu}
                         </div>
                     )
