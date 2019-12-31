@@ -101,7 +101,7 @@ export default class StickyMenuBar extends React.Component{
 
     render(){
         const activeMenuIdx = this.state.activeMenuIdx;
-        const leftOffsetActiveMenu = this.menuRefs[activeMenuIdx]?this.menuRefs[activeMenuIdx].offsetLeft: 0;
+        const leftOffsetActiveMenu = this.menuRefs[activeMenuIdx]?this.menuRefs[activeMenuIdx].offsetLeft: 5;
         const menus = ['ABOUT ME','PROFESSION','CONTACT'];
 
         return(
